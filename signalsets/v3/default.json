@@ -1,7 +1,9 @@
 { "ecu": [
     { "hdr": "7E0",  "type": "engine" },
+    { "hdr": "7E1",  "type": "hybridControl" },
     { "hdr": "7E2",  "type": "transmission" },
     { "hdr": "7E4",  "type": "hybridControl" },
+    { "hdr": "7E6",  "type": "abs" },
     { "hdr": "7E7",  "type": "battery" },
     { "hdr": "DACB", "type": "battery" }
   ],
