@@ -88,7 +88,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0042"}, "freq": 5,
   "signals": [
-    {"id": "CHEVROLET_M_CTRL_MODULE_V", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "M control module voltage"}
+    {"id": "CHEVROLET_M_CTRL_MODULE_V", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "M control module voltage"},
+    {"id": "CHEVROLET_CTRL_MODULE_V",   "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "Control module voltage",   "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0052"}, "freq": 1,
   "signals": [
@@ -1794,13 +1795,26 @@
     {"id": "CHEVROLET_DPF_PRESS", "path": "Engine", "fmt": { "len": 16, "max": 655.35,                 "mul": 100, "div": 10000,               "unit": "kilopascal" }, "name": "Particulate filter pressure"},
     {"id": "CHEVROLET_DPF_PRES",  "path": "Engine", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "mul": 100, "div": 10000, "sign": true, "unit": "kilopascal" }, "name": "Diesel particulate filter, pressure"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "000D"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_VSS_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "nullmax": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "0010"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_MAF_DA11", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor"}
+    {"id": "CHEVROLET_MAF_DA11", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor"},
+    {"id": "CHEVROLET_MAF_V2",   "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor", "suggestedMetric": "massAirFlow"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_FLI_DA11", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel remaining", "suggestedMetric": "fuelTankLevel"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "0042"}, "freq": 5,
+  "signals": [
+    {"id": "CHEVROLET_CTRL_MODULE_V_V2", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "Control module voltage", "suggestedMetric": "starterBatteryVoltage"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "0052"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_ETHANOL_CONTENT_FUEL_V2", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Ethanol content of fuel"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "005C"}, "freq": 1,
   "signals": [
@@ -1817,6 +1831,50 @@
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "009D"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_TOTAL_FUEL_CONSUMPTION_RATE_DA11", "path": "Fuel", "fmt": { "len": 16, "max": 1310.7, "mul": 200, "div": 10000, "unit": "gramsPerSecond" }, "name": "Total fuel consumption rate"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1141"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_IGN_1_V_V2", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "div": 10, "unit": "volts" }, "name": "Ignition 1 voltage"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1145"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_HEATED_OXYGEN_SENS_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "millivolts" }, "name": "Heated oxygen sensor"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "114B"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EGR_V_V2", "path": "Engine", "fmt": { "len": 8, "max": 5, "div": 51, "unit": "volts" }, "name": "Exhaust gas recirculation voltage"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1154"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EOT_CALC_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Calculated engine oil temperature", "suggestedMetric": "engineOilTemperature"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "115C"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EOP_2_V2", "path": "Engine", "fmt": { "len": 8, "max": 131.39, "min": -21.6, "mul": 3, "div": 5, "add": -21.6, "nullmax": 131.39, "unit": "psi" }, "name": "Engine oil pressure 2", "description": "Reads 0 psi at the sensor's zero-pressure floor, raw 36; the 0.6 psi slope is not yet checked against a gauge."}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1161"}, "freq": 5,
+  "signals": [
+    {"id": "CHEVROLET_AAT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Outside air temperature"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1170"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EVAPORATIVE_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "div": 2.55, "unit": "percent" }, "name": "Evaporative emissions purge"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1171"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EGR_DUTY_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "div": 2.55, "unit": "percent" }, "name": "Exhaust gas recirculation duty cycle"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1172"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_IDLE_AIR_CTRL_POS_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Idle air control position"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1192"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_DES_IDLE_SPD_V2", "path": "Movement", "fmt": { "len": 8, "max": 3187.5, "mul": 12.5, "unit": "rpm" }, "name": "Desired idle speed"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1193"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_INJ_WIDTH_CYL_1_V2", "path": "Engine", "fmt": { "len": 16, "max": 1000, "div": 65.535, "unit": "milliseconds" }, "name": "Injector pulse width, cylinder 1"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1194"}, "freq": 1,
   "signals": [
@@ -1842,6 +1900,26 @@
   "signals": [
     {"id": "CHEVROLET_FUEL_INJECTION_C7", "path": "Fuel", "fmt": { "len": 16, "max": 1000, "mul": 1000, "div": 65535, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 7"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "119D"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BAROMETRIC_P_V8_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "119E"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_AIR_FUEL_RAT_CMD_V2", "path": "Engine", "fmt": { "len": 8, "max": 25.5, "div": 10, "unit": "scalar" }, "name": "Air/fuel ratio, commanded"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "119F"}, "freq": 30,
+  "signals": [
+    {"id": "CHEVROLET_REMAINING_OIL_LIFE_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Remaining oil life"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11A1"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_RUNTM_V2", "path": "Clocks", "fmt": { "len": 16, "max": 65535, "unit": "seconds" }, "name": "Time since engine start"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11A6"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_KNOCK_RETARD_V2", "path": "Engine", "fmt": { "len": 8, "max": 56.1, "mul": 22, "div": 100, "unit": "degrees" }, "name": "Knock retard"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11EA"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_MISFIRES_C5_CUR_DA11", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Misfires, current, cylinder 5"}
@@ -1857,6 +1935,42 @@
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11ED"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_MISFIRES_C8_CUR", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Misfires, current, cylinder 8"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11F8"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_5_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 5"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11F9"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_6_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 6"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11FA"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_7_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 7"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "11FB"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_8_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 8"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1200"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_TOTAL_MISFIRE_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Total misfire"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1201"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_1_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 1"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1202"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_2_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 2"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1203"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_3_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 3"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1204"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_MIS_HISTORY_4_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Misfire history, cylinder 4"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1205"}, "freq": 1,
   "signals": [
@@ -1874,17 +1988,170 @@
   "signals": [
     {"id": "CHEVROLET_MISFIRES_C4_CUR_DA11", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Misfires, current, cylinder 4"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1251"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BAROMETRIC_P_V6_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure, alternate"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "125D"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_KNOCK_RETARD_ALT_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "degrees" }, "name": "Knock retard, alternate"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "125E"}, "freq": 3600,
+  "signals": [
+    {"id": "CHEVROLET_KNOCK_SENS_ACTIVE_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Knock sensor active counter"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "129A"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_INJ_WIDTH_CYL_8_V2", "path": "Engine", "fmt": { "len": 16, "max": 1000, "div": 65.535, "unit": "milliseconds" }, "name": "Injector pulse width, cylinder 8"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "12C3"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_INJECTOR_DUTY_CYCLE_BANK_1_V2", "path": "Engine", "fmt": { "len": 16, "max": 983.025, "mul": 150, "div": 10000, "unit": "milliseconds" }, "name": "Injector duty cycle bank 1"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "12C4"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_INJECTOR_DUTY_CYCLE_BANK_2_V2", "path": "Engine", "fmt": { "len": 16, "max": 983.025, "mul": 150, "div": 10000, "unit": "milliseconds" }, "name": "Injector duty cycle bank 2"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "12D9"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_TOTAL_KNOCK_RETARD_V2", "path": "Engine", "fmt": { "len": 8, "max": 114.75, "mul": 45, "div": 100, "unit": "degrees" }, "name": "Total knock retard"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "13AF"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_COOLING_FAN_MOTOR_CMD_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Cooling fan motor command"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1470"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_EOP_DA11_2", "path": "Engine", "fmt": { "len": 8, "max": 1020, "mul": 400, "div": 100, "unit": "kilopascal" }, "name": "Engine oil pressure"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1538"}, "freq": 5,
+  "signals": [
+    {"id": "CHEVROLET_IAT_2_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature 2"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "153E"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_EOT_DA11_2", "path": "Engine", "fmt": { "len": 8, "max": 215, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "CHEVROLET_EOT_DA11_2", "path": "Engine", "fmt": { "len": 8, "max": 215, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"},
+    {"id": "CHEVROLET_EOT_V2",     "path": "Engine", "fmt": { "len": 8, "max": 215, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1564"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_AC_HIGH_SIDE_P_V2", "path": "Engine", "fmt": { "len": 8, "max": 515.1, "mul": 2.02, "unit": "psi" }, "name": "Air conditioning high side pressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "162F"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_1_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 1"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1630"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_2_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 2"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1631"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_3_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 3"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1632"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_4_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 4"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1633"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_5_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 5"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1634"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_6_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 6"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1635"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_7_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 7"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1636"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_BALANCE_RATE_CYL_8_V2", "path": "Engine", "fmt": { "len": 16, "max": 511, "min": -512, "div": 64, "add": -512, "unit": "scalar" }, "name": "Balance rate, cylinder 8"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1940"}, "freq": 5,
+  "signals": [
+    {"id": "CHEVROLET_ATF_T_VAR_1_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 1", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1991"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_TQ_CONV_CLU_SLIP_SPD_V2", "path": "Movement", "fmt": { "len": 16, "max": 4095.875, "min": -4096, "div": 8, "sign": true, "unit": "rpm" }, "name": "Torque converter clutch slip speed"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1992"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_LAST_SHIFT_TIME_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "Last shift time"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1993"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_1_2_SHIFT_TIME_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "1-2 shift time"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1994"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_2_3_SHIFT_TIME_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "2-3 shift time"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1995"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_3_4_SHIFT_TIME_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "3-4 shift time"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1997"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_1_2_SHIFT_ERROR_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "1-2 shift error"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1998"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_2_3_SHIFT_ERROR_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "2-3 shift error"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1999"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_3_4_SHIFT_ERROR_V2", "path": "Engine", "fmt": { "len": 8, "max": 6.375, "div": 40, "unit": "seconds" }, "name": "3-4 shift error"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "199A"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_CURRENT_GEAR_V2", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "199E"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_P_CTRL_SOLENOID_ACT_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "milliamps" }, "name": "Pressure control solenoid current, actual"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "199F"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_P_CTRL_SOLENOID_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "milliamps" }, "name": "Pressure control solenoid current, reference"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "19DE"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_ENG_TQ_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "newtonMeters" }, "name": "Engine torque"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1C1B"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EOP_CALC_V2", "path": "Engine", "fmt": { "len": 8, "max": 1020, "mul": 400, "div": 100, "unit": "kilopascal" }, "name": "Calculated engine oil pressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "203F"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_ENG_TQ_2", "path": "Engine", "fmt": { "len": 16, "max": 16383, "div": 4, "unit": "newtonMeters" }, "name": "Engine torque"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20AC"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_FUEL_INJECTION_C1_DA11", "path": "Fuel", "fmt": { "len": 16, "max": 65.535, "mul": 10, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 1"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20AD"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_INJ_CYL_2", "path": "Fuel", "fmt": { "len": 16, "max": 6.55, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 2"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20AE"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_INJ_CYL_3", "path": "Fuel", "fmt": { "len": 16, "max": 6.55, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 3"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20AF"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_INJ_CYL_4", "path": "Fuel", "fmt": { "len": 16, "max": 6.55, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 4"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20B0"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_INJ_CYL_5", "path": "Fuel", "fmt": { "len": 16, "max": 6.55, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 5"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20B1"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_INJ_CYL_6", "path": "Fuel", "fmt": { "len": 16, "max": 6.55, "div": 10000, "unit": "milliseconds" }, "name": "Fuel injection, cylinder 6"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "20B3"}, "freq": 1,
   "signals": [
@@ -1921,6 +2188,22 @@
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "2345"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_EOP_ACT_V2", "path": "Engine", "fmt": { "len": 8, "max": 1020, "mul": 4, "unit": "kilopascal" }, "name": "Engine oil pressure: actual"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "248E"}, "freq": 15,
+  "signals": [
+    {"id": "CHEVROLET_TP_FL_V2", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left front tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "248F"}, "freq": 15,
+  "signals": [
+    {"id": "CHEVROLET_TP_FR_V2", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right front tire pressure", "suggestedMetric": "frontRightTirePressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "2490"}, "freq": 15,
+  "signals": [
+    {"id": "CHEVROLET_TP_RR_V2", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right rear tire pressure", "suggestedMetric": "rearRightTirePressure"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "2491"}, "freq": 15,
+  "signals": [
+    {"id": "CHEVROLET_TP_RL_V2", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left rear tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3035"}, "freq": 1,
   "signals": [
@@ -1962,6 +2245,10 @@
   "signals": [
     {"id": "CHEVROLET_CHARGE_AIR_COOLER_T_SNS_2_DA11", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Charge air cooler temperature sensor 2"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3201"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_CURRENT_GEAR_VAR_3_V2", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear, variant 3"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3218"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_FUEL_T_DA11", "path": "Fuel", "fmt": { "len": 8, "max": 127.5, "mul": 50, "div": 100, "unit": "celsius" }, "name": "Fuel temperature"}
@@ -1969,6 +2256,10 @@
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "328A"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_BP_DES_DA11", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "kilopascal" }, "name": "Boost pressure: desired"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3318"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EOP_CTRL_SOLENOID_VALVE_CMD_V2", "path": "Engine", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Engine oil pressure control solenoid valve command"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3372"}, "freq": 1,
   "signals": [
@@ -1990,13 +2281,29 @@
   "signals": [
     {"id": "CHEVROLET_AIRFILT_LIFE_DA11", "path": "Engine", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Air filter life remaining"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "37A7"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_EOP_DES", "path": "Engine", "fmt": { "len": 8, "max": 1020, "mul": 4, "unit": "kilopascal" }, "name": "Engine oil pressure, desired"}
+  ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "3812"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_COOLING_FAN_CMD_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Cooling fan command"}
+  ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "4DC0"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_EO_LIFE_REMAINING_DA11", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Engine oil life remaining"}
   ]},
+{ "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "F432"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_FUEL_TANK_P_V2", "path": "Fuel", "fmt": { "len": 16, "max": 1.96, "div": 33333.3333333333, "unit": "psi" }, "name": "Fuel tank pressure"}
+  ]},
 { "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1940"}, "freq": 1,
   "signals": [
     {"id": "CHEVROLET_TFT", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1942"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_OUTPUT_SHFT_SPD_V2", "path": "Movement", "fmt": { "len": 16, "max": 8191, "min": -8192, "div": 4, "sign": true, "unit": "rpm" }, "name": "AT output shaft speed"}
   ]},
 { "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "1991"}, "freq": 1,
   "signals": [
@@ -2018,11 +2325,40 @@
           "10": { "description": "Drive, gear 7", "value": "D7" },
           "11": { "description": "Drive, gear 8", "value": "D8" }
         }}
+    },
+    {"id": "CHEVROLET_CURRENT_GEAR_2", "path": "Transmission", "name": "Shift gear", "fmt": {"len": 8, "map": {
+          "1":  { "description": "Neutral",        "value": "NEUTRAL" },
+          "2":  { "description": "Park",           "value": "PARK" },
+          "3":  { "description": "Reverse",        "value": "REVERSE" },
+          "4":  { "description": "Drive, gear 1",  "value": "D1" },
+          "5":  { "description": "Drive, gear 2",  "value": "D2" },
+          "6":  { "description": "Drive, gear 3",  "value": "D3" },
+          "7":  { "description": "Drive, gear 4",  "value": "D4" },
+          "8":  { "description": "Drive, gear 5",  "value": "D5" },
+          "9":  { "description": "Drive, gear 6",  "value": "D6" },
+          "10": { "description": "Drive, gear 7",  "value": "D7" },
+          "11": { "description": "Drive, gear 8",  "value": "D8" },
+          "12": { "description": "Drive, gear 9",  "value": "D9" },
+          "13": { "description": "Drive, gear 10", "value": "D10" }
+        }}
     }
+  ]},
+{ "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "280D"}, "freq": 5,
+  "signals": [
+    {"id": "CHEVROLET_ATF_T_VAR_8_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 6", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "2862"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_TRANS_P_V2", "path": "Transmission", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "scalar" }, "name": "Transmission pressure"}
+  ]},
+{ "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "2889"}, "freq": 0.25,
+  "signals": [
+    {"id": "CHEVROLET_GEAR_POS", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Gear, AT position"}
   ]},
 { "hdr": "DA18", "rax": "2AF118", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "295A"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_TF_T_FLTED_DA18", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered"}
+    {"id": "CHEVROLET_TF_T_FLTED_DA18", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered"},
+    {"id": "CHEVROLET_TF_T_FLTED_V2",   "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "DA1A", "rax": "2AF11A", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "448F"}, "freq": 30,
   "signals": [
