@@ -34,19 +34,19 @@
   ]},
 { "hdr": "241", "rax": "641", "dbg": true, "cmd": {"22": "5005"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+    {"id": "CHEVROLET_TP_FL_241", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
   ]},
 { "hdr": "241", "rax": "641", "dbg": true, "cmd": {"22": "5006"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+    {"id": "CHEVROLET_TP_FR_241", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
   ]},
 { "hdr": "241", "rax": "641", "dbg": true, "cmd": {"22": "5007"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
+    {"id": "CHEVROLET_TP_RR_241", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "241", "rax": "641", "dbg": true, "cmd": {"22": "5008"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "CHEVROLET_TP_RL_241", "path": "Tires", "fmt": { "len": 16, "max": 4095.9375, "div": 16, "unit": "kilopascal" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "257", "rax": "657", "dbg": true, "cmd": {"22": "28CB"}, "freq": 10,
   "signals": [
@@ -72,10 +72,6 @@
   "signals": [
     {"id": "CHEVROLET_RL_WHL_SPD", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
   ]},
-{ "hdr": "7E0", "dbg": true, "cmd": {"22": "11A1"}, "freq": 1,
-  "signals": [
-    {"id": "CHEVROLET_RUNTM", "path": "Clocks", "fmt": { "len": 16, "max": 65535, "unit": "seconds" }, "name": "Time since engine start"}
-  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "000D"}, "freq": 0.25,
   "signals": [
     {"id": "CHEVROLET_VSS",      "path": "Movement", "fmt": { "len": 8, "max": 255, "nullmax": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"},
@@ -83,7 +79,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "fcm1": true, "dbg": true, "cmd": {"22": "0010"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_MAF", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor"}
+    {"id": "CHEVROLET_MAF",     "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor", "suggestedMetric": "massAirFlow"},
+    {"id": "CHEVROLET_MAF_7E0", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "gramsPerSecond" }, "name": "Mass airflow sensor"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 30,
   "signals": [
@@ -91,8 +88,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0042"}, "freq": 5,
   "signals": [
-    {"id": "CHEVROLET_M_CTRL_MODULE_V", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "M control module voltage"},
-    {"id": "CHEVROLET_CTRL_MODULE_V",   "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "Control module voltage",   "suggestedMetric": "starterBatteryVoltage"}
+    {"id": "CHEVROLET_CTRL_MODULE_V",   "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "Control module voltage",   "suggestedMetric": "starterBatteryVoltage"},
+    {"id": "CHEVROLET_M_CTRL_MODULE_V", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "M control module voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0052"}, "freq": 1,
   "signals": [
@@ -188,7 +185,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "119D"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_BAROMETRIC_P_V8", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure, V8"}
+    {"id": "CHEVROLET_BAROMETRIC_P_V8", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "119E"}, "freq": 1,
   "signals": [
@@ -197,6 +194,10 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "119F"}, "freq": 30,
   "signals": [
     {"id": "CHEVROLET_REMAINING_OIL_LIFE", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Remaining oil life"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11A1"}, "freq": 1,
+  "signals": [
+    {"id": "CHEVROLET_RUNTM", "path": "Clocks", "fmt": { "len": 16, "max": 65535, "unit": "seconds" }, "name": "Time since engine start"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11A6"}, "freq": 1,
   "signals": [
@@ -272,7 +273,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1251"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_BAROMETRIC_P_V6", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure, V6"}
+    {"id": "CHEVROLET_BAROMETRIC_P_V6", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Barometric pressure, alternate"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "125D"}, "freq": 1,
   "signals": [
@@ -359,7 +360,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1940"}, "freq": 5,
   "signals": [
-    {"id": "CHEVROLET_ATF_T_VAR_1", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 1"}
+    {"id": "CHEVROLET_ATF_T_VAR_1",      "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 1", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "CHEVROLET_2500_ATF_T_VAR_1", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1991"}, "freq": 0.25,
   "signals": [
@@ -459,7 +461,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "fcm1": true, "dbg": true, "cmd": {"22": "20E3"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_BP_ACT", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "kilopascal" }, "name": "Boost pressure: actual"}
+    {"id": "CHEVROLET_BP_ACT", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "kilopascal" }, "name": "Boost pressure, actual"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "232C"}, "freq": 5,
   "signals": [
@@ -496,19 +498,19 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "248E"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_FL_7E0", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left front tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+    {"id": "CHEVROLET_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left front tire pressure", "suggestedMetric": "frontLeftTirePressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "248F"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_FR_7E0", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right front tire pressure", "suggestedMetric": "frontRightTirePressure"}
+    {"id": "CHEVROLET_TP_FR", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right front tire pressure", "suggestedMetric": "frontRightTirePressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2490"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_RR_7E0", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right rear tire pressure", "suggestedMetric": "rearRightTirePressure"}
+    {"id": "CHEVROLET_TP_RR", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Right rear tire pressure", "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2491"}, "freq": 15,
   "signals": [
-    {"id": "CHEVROLET_TP_RL_7E0", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left rear tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "CHEVROLET_TP_RL", "path": "Tires", "fmt": { "len": 8, "max": 255, "unit": "psi" }, "name": "Left rear tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "24AC"}, "freq": 1,
   "signals": [
@@ -536,7 +538,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "fcm1": true, "dbg": true, "cmd": {"22": "328A"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_BP_DES", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "kilopascal" }, "name": "Boost pressure: desired"}
+    {"id": "CHEVROLET_BP_DES", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "mul": 100, "div": 10000, "unit": "kilopascal" }, "name": "Boost pressure, desired"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3318"}, "freq": 1,
   "signals": [
@@ -874,7 +876,7 @@
   ]},
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "1940"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "ATF temperature", "suggestedMetric": "transmissionFluidTemperature"}
+    {"id": "CHEVROLET_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "1941"}, "freq": 1,
   "signals": [
@@ -914,7 +916,8 @@
   ]},
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "280D"}, "freq": 5,
   "signals": [
-    {"id": "CHEVROLET_ATF_T_VAR_6", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 6"}
+    {"id": "CHEVROLET_ATF_T_VAR_6",      "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 6", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "CHEVROLET_2500_ATF_T_VAR_6", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, variant 6"}
   ]},
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "2851"}, "freq": 1,
   "signals": [
@@ -926,7 +929,8 @@
   ]},
 { "hdr": "7E2", "rax": "7EA", "fcm1": true, "dbg": true, "cmd": {"22": "295A"}, "freq": 5,
   "signals": [
-    {"id": "CHEVROLET_TF_T_FLTED", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered"}
+    {"id": "CHEVROLET_TF_T_FLTED",     "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "CHEVROLET_TF_T_FLTED_7E2", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature, filtered"}
   ]},
 { "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "1B1A"}, "freq": 1,
   "signals": [
