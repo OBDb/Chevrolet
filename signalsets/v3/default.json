@@ -1896,7 +1896,7 @@
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "0078"}, "freq": 1,
   "signals": [
-    {"id": "CHEVROLET_DPF_EGT_4", "path": "Engine", "fmt": {"bix": 56, "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "Diesel particulate filter, exhaust gas temperature 4"}
+    {"id": "CHEVROLET_DPF_EGT_4", "path": "Engine", "fmt": {"bix": 56, "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Diesel particulate filter, exhaust gas temperature 4"}
   ]},
 { "hdr": "DA11", "rax": "2AF111", "pri": "14", "fcm1": true, "dbg": true, "cmd": {"22": "009D"}, "freq": 1,
   "signals": [
